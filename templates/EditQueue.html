@@ -1,0 +1,105 @@
+{% extends "main.html" %}
+
+{% block content %}
+
+
+    <div class="col-md-6 mx-auto">
+
+        <!-- form card login -->
+        <div class="card rounded-0">
+
+            <div class="card-header">
+                <h3 class="mb-0">{{ form_name }}</h3>
+            </div>
+            <div class="card-body">
+
+                <form class="form" action="/{{ action }}" method=post>
+                    {{ form.hidden_tag() }}
+
+                    <div class="form-group">
+                        {{ form.place_name.label }}
+                        {{ form.place_name(class_="form-control") }}
+
+                        {% if form.place_name.errors %}
+                            <div class="alert alert-danger" role="alert">
+                                {% for message in form.place_name.errors %}
+                                    <div>{{ message }}</div>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        {{ form.date.label }}
+                        {{ form.date(class_="form-control") }}
+
+                        {% if form.date.errors %}
+                            <div class="alert alert-danger" role="alert">
+                                {% for message in form.date.errors %}
+                                    <div>{{ message }}</div>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        {{ form.queue_name.label }}
+                        {{ form.queue_name(class_="form-control") }}
+
+                        {% if form.queue_name.errors %}
+                            <div class="alert alert-danger" role="alert">
+                                {% for message in form.queue_name.errors %}
+                                    <div>{{ message }}</div>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        {{ form.queue_number.label }}
+                        {{ form.queue_number(class_="form-control") }}
+
+                        {% if form.queue_number.errors %}
+                            <div class="alert alert-danger" role="alert">
+                                {% for message in form.queue_number.errors %}
+                                    <div>{{ message }}</div>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+
+                    <div class="form-group">
+                        {{ form.number_of_people.label }}
+                        {{ form.number_of_people(class_="form-control") }}
+
+                        {% if form.number_of_people.errors %}
+                            <div class="alert alert-danger" role="alert">
+                                {% for message in form.number_of_people.errors %}
+                                    <div>{{ message }}</div>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        {{ form.waiting_time.label }}
+                        {{ form.waiting_time(class_="form-control") }}
+
+                        {% if form.waiting_time.errors %}
+                            <div class="alert alert-danger" role="alert">
+                                {% for message in form.waiting_time.errors %}
+                                    <div>{{ message }}</div>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+
+
+
+                    {{ form.submit(class_="btn btn-success") }}
+                </form>
+            </div>
+
+        </div>
+
+
+    </div>
+
+    </div>
+{% endblock %}

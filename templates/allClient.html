@@ -1,0 +1,71 @@
+{% extends "main.html" %}
+
+{% block content %}
+
+    <!-- Editable table -->
+<style>
+    table {
+
+text-align: left;
+border-collapse: separate;
+border-spacing: 5px;
+background: #ECE9E0;
+color: #656665;
+border: 16px solid #ECE9E0;
+border-radius: 20px;
+}
+th {
+font-size: 18px;
+padding: 10px;
+}
+td {
+background: greenyellow;
+padding: 10px;
+}
+</style>
+    <div class="card">
+        <h3 class="card-header text-center font-weight-bold text-uppercase py-4">{{ name }}</h3>
+        <div class="card-body">
+            <div id="table" class="table-editable">
+      <span class="table-add float-right mb-3 mr-2"><a href="#!" class="text-success"><i
+              class="fas fa-plus fa-2x" aria-hidden="true"></i></a></span>
+                <table class="table table-bordered table-responsive-md table-striped text-center">
+                    <thead>
+                    <tr>
+                        <th class="text-center">place_name</th>
+                        <th class="text-center">client_fullname</th>
+                        <th class="text-center">client_documents</th>
+                        <th class="text-center">date</th>
+                        <th class="text-center">Edit</th>
+                        <th class="text-center">Delete</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for row in Client %}
+                        <tr>
+                            <td class="pt-3-half" contenteditable="true">{{row.place_name}}</td>
+                            <td class="pt-3-half" contenteditable="true">{{row.client_fullname}}</td>
+                            <td class="pt-3-half" contenteditable="true">{{row.client_documents}}</td>
+                            <td class="pt-3-half" contenteditable="true">{{row.date}}</td>
+                            <td>
+                                <span class="table-delete" ><button type="button" class="btn btn-danger btn-rounded btn-sm my-0" >
+                                    <a href="https://labwork2.herokuapp.com/editClient?client_documents={{ row.client_documents }}">Edit</a></button></span>
+                            </td>
+                            <td>
+                                <span class="table-delete"><button type="button"
+                                                                   class="btn btn-danger btn-rounded btn-sm my-0" >
+                                    <a href="https://labwork2.herokuapp.com/deleteClient?client_documents={{ row.client_documents }}">Delete</a></button></span>
+                            </td>
+                        </tr>
+                    {% endfor %}
+
+
+                    </tbody>
+                </table>
+            <span class="table-remove"><button type="button" class="btn btn-danger btn-rounded btn-sm my-0" allign="center">
+                                    <a href="https://labwork2.herokuapp.com/createClient">Create</a></button></span>
+            </div>
+        </div>
+    </div>
+    <!-- Editable table -->
+{% endblock %}

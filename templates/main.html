@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 3px solid #e7e7e7;
+  background-color: #f3f3f3;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: #666;
+  text-align: center;
+  padding: 20px 24px;
+  text-decoration: none;
+  font-weight: bolder;
+  font-size: 20px;
+}
+
+li a:hover:not(.active) {
+  background-color: #ddd;
+}
+
+li a {
+  color: black;
+  background-color: forestgreen;
+}
+
+</style>
+
+</head>
+
+<body class="bg-dark">
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <ul class="navbar-nav">
+    <li class="nav-item active"><a class="nav-link" href="https://labwork2.herokuapp.com/Client">Client</a></li>
+    <li class="nav-item"><a class="nav-link" href="https://labwork2.herokuapp.com/Place">Place</a></li>
+    <li class="nav-item"><a class="nav-link" href="https://labwork2.herokuapp.com/Queue">Queue</a></li>
+    <li class="nav-item"><a class="nav-link" href="https://labwork2.herokuapp.com/Schedule">Schedule</a></li>
+    <li class="nav-item"><a class="nav-link" href="https://labwork2.herokuapp.com/Dashboard">Dashboard</a></li>
+  </ul>
+</nav>
+
+
+{% block content %}{% endblock %}
+
+</body>
+</html>
